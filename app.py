@@ -63,11 +63,12 @@ def signUp():
         cursor.close() 
         conn.close()
 
+conn = mysql.connect()
+cursor = conn.cursor()
 @app.route('/initDb',methods=['POST','GET'])
 def initDb():
     try:
-        conn = mysql.connect()
-        cursor = conn.cursor()
+
         # Create Table
         createTableCommand = "CREATE TABLE tbl_user (`user_id` BIGINT NOT NULL AUTO_INCREMENT,`user_name` VARCHAR(45) NULL,`user_username` VARCHAR(45) NULL, `user_password` VARCHAR(100) NULL,PRIMARY KEY (`user_id`))"
         cursor.execute(createTableCommand)
