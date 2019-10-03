@@ -1,7 +1,7 @@
 #!/bin/sh
 # Returns true once mysql can connect.
 mysql_ready() {
-    mysqladmin ping --host=${MYSQL_DATABASE_HOST} --user=${MYSQL_DATABASE_USER} --password=${MYSQL_DATABASE_PASSWORD} > /dev/null 2>&1
+    mysqladmin ping --host=${MYSQL_DATABASE_HOST} --user=${MYSQL_DATABASE_USER} --password=${MYSQL_DATABASE_PASSWORD} --connect-timeout=3 > /dev/null 2>&1
     ret=$?
     return $ret
 }

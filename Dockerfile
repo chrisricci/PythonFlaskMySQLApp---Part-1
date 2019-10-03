@@ -1,6 +1,8 @@
 FROM python:alpine
 COPY app.py /app/
 COPY requirements.txt /app/ 
+ADD static /app/static
+ADD templates /app/templates 
 WORKDIR /app
 RUN pip install -r requirements.txt
 USER 1001

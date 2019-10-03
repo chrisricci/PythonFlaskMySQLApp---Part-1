@@ -12,7 +12,7 @@ app.config['MYSQL_DATABASE_USER'] = os.environ.get('MYSQL_DATABASE_USER') if os.
 sys.stdout.write(os.environ.get('MYSQL_DATABASE_USER'))
 app.config['MYSQL_DATABASE_PASSWORD'] = os.environ.get('MYSQL_DATABASE_PASSWORD') if os.environ.get('MYSQL_DATABASE_PASSWORD') != None else 'mYcezJ@rySIk@LhehJaM(AcajaD'
 sys.stdout.write(os.environ.get('MYSQL_DATABASE_PASSWORD'))
-app.config['MYSQL_DATABASE'] = os.environ.get('MYSQL_DATABASE') if os.environ.get('MYSQL_DATABASE') != None else 'db1'
+app.config['MYSQL_DATABASE_DB'] = os.environ.get('MYSQL_DATABASE_DB') if os.environ.get('MYSQL_DATABASE_DB') != None else 'db1'
 sys.stdout.write(os.environ.get('MYSQL_DATABASE'))
 app.config['MYSQL_DATABASE_HOST'] = os.environ.get('MYSQL_DATABASE_HOST') if os.environ.get('MYSQL_DATABASE_HOST') != None else 'localhost1'
 sys.stdout.write(os.environ.get('MYSQL_DATABASE_HOST'))
@@ -63,12 +63,11 @@ def signUp():
         cursor.close() 
         conn.close()
 
-conn = mysql.connect()
-cursor = conn.cursor()
 @app.route('/initDb',methods=['POST','GET'])
 def initDb():
     try:
-
+        conn = mysql.connect()
+        cursor = conn.cursor()
         # Create Table
         createTableCommand = "CREATE TABLE tbl_user (`user_id` BIGINT NOT NULL AUTO_INCREMENT,`user_name` VARCHAR(45) NULL,`user_username` VARCHAR(45) NULL, `user_password` VARCHAR(100) NULL,PRIMARY KEY (`user_id`))"
         cursor.execute(createTableCommand)
