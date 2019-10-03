@@ -12,8 +12,8 @@ app.config['MYSQL_DATABASE_USER'] = os.environ.get('MYSQL_DATABASE_USER') if os.
 sys.stdout.write(os.environ.get('MYSQL_DATABASE_USER'))
 app.config['MYSQL_DATABASE_PASSWORD'] = os.environ.get('MYSQL_DATABASE_PASSWORD') if os.environ.get('MYSQL_DATABASE_PASSWORD') != None else 'mYcezJ@rySIk@LhehJaM(AcajaD'
 sys.stdout.write(os.environ.get('MYSQL_DATABASE_PASSWORD'))
-app.config['MYSQL_DATABASE_DB'] = os.environ.get('MYSQL_DATABASE_DB') if os.environ.get('MYSQL_DATABASE_DB') != None else 'db1'
-sys.stdout.write(os.environ.get('MYSQL_DATABASE_DB'))
+app.config['MYSQL_DATABASE'] = os.environ.get('MYSQL_DATABASE') if os.environ.get('MYSQL_DATABASE') != None else 'db1'
+sys.stdout.write(os.environ.get('MYSQL_DATABASE'))
 app.config['MYSQL_DATABASE_HOST'] = os.environ.get('MYSQL_DATABASE_HOST') if os.environ.get('MYSQL_DATABASE_HOST') != None else 'localhost1'
 sys.stdout.write(os.environ.get('MYSQL_DATABASE_HOST'))
 sys.stdout.flush()

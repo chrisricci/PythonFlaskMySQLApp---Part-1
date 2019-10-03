@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-msql
+spec:
+  selector:
+    matchLabels:
+      app: python-msql
+  template:
+    metadata:
+      labels:
+        app: python-msql
+    spec:
+      containers:
+      - name: python-msql
+        image: gcr.io/cr-networking-demo/python-msql-app:v1
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "500m"
+          limits:
+            memory: "512Mi"
+            cpu: "1000m"
+        ports:
+        - containerPort: 8080
